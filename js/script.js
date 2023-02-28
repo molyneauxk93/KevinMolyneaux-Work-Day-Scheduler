@@ -13,11 +13,11 @@ $(function () {
     $('#currentDay').text(curDay);
 
     //get ids for each row in scheduler 
-    schedHours = $('.time-block');
-    console.log(schedHours);
+    $schedHours = $('.time-block');
+    console.log($schedHours);
 
     //for each time block
-    schedHours.each(function () {
+    $schedHours.each(function () {
         //set jQuery timebloack to this
         var $timeBlock = $(this);
         //parseInt on timeblock and store in TimeBlockHour to get the number value
@@ -48,21 +48,21 @@ $(function () {
 
 
     //  Event listener for save click
-    schedHours.on('click', '.saveBtn', saveTimeBlock);
+    $schedHours.on('click', '.saveBtn', saveTimeBlock);
 
     //function for saviung time block 
     function saveTimeBlock(event) {
         event.preventDefault();
-        
+
         //Get the id using this 
-        var eventBlock = $(this).parent().attr('id');
-        console.log(eventBlock);
+        var $eventBlock = $(this).parent().attr('id');
+        console.log($eventBlock);
         //Get input text using this 
-        eventText = $(this).parent().children('textarea').val();
-        console.log(eventText);
+        $eventText = $(this).parent().children('textarea').val();
+        console.log($eventText);
 
         //set local storage to eventBlock as the key and eventText as the value
-        localStorage.setItem(eventBlock, eventText);
+        localStorage.setItem($eventBlock, $eventText);
 
 
     }
